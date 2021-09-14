@@ -1,0 +1,6 @@
+framework module Pods_SaryCatalogScreen {
+  umbrella header "Pods-SaryCatalogScreen-umbrella.h"
+
+  export *
+  module * { export * }
+}
