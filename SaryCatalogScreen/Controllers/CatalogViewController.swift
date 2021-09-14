@@ -9,46 +9,40 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CatalogViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CatalogViewController: UIViewController {
     
     let cellId = "sectionCell"
+    
+    private var viewModel = BannersViewModel()
+    private let bag = DisposeBag()
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        API.shared.getCatalog()
+        view.addSubview(tableView)
+        tableView.frame = view.bounds
+        
+        
     }
 
     func bindTableViewData() {
         //bind items to table
-        
+        viewModel.banners.bind(to: tableView.rx.items(cellIdentifier: cellId, cellType: UITableViewCell.self)) { row, model, cell in
+            cell.textLabel?.text = model.title
+            cell.detailTextLabel?.text = model.description
+        }.disposed(by: bag)
         
         //bind model selected hundler
         
         
         //fetch items
-    }
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 300)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? OldEmbeddedCollectionViewCell else {
-//            return UICollectionViewCell()
-//        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .green
-        return cell
+        viewModel.getBanners()
     }
 }
 

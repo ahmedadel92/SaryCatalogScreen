@@ -13,7 +13,7 @@ struct BannersViewModel {
     var banners = PublishSubject<[Banner]>()
     
     func getBanners() {
-        let banners = [Banner]()
+        let banners = API.shared.getBanners()
         
         self.banners.onNext(banners)
         self.banners.onCompleted()

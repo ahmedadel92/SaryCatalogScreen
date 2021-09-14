@@ -14,7 +14,7 @@ class API {
     let bannersUrl = URL(string: "https://staging.sary.co/api/v2.5.1/baskets/76097/banners/")!
     let catalogUrl = URL(string: "https://staging.sary.co/api/baskets/76097/catalog/")!
     
-    func getBanners() {
+    func getBanners() -> [Banner] {
         
 //        var request = URLRequest(url: bannersUrl)
 //        request.httpMethod = "GET"
@@ -46,11 +46,14 @@ class API {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let bannersResponse = try JSONDecoder().decode(BannersResponse.self, from: data)
+                return bannersResponse.result
             } catch {
                // handle error
             print(error)
             }
         }
+        
+        return [Banner]()
     }
     
     
