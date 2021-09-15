@@ -10,7 +10,7 @@ import Foundation
 struct CatalogSection {
     let id: Int
     let title: String
-    let data: [Group]
+    let data: [CatalogItem]
     let dataType: String
     let showTitle: Bool
     let uiType: String
@@ -35,7 +35,7 @@ extension CatalogSection: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         title = try values.decode(String.self, forKey: .title)
-        data = try values.decode([Group].self, forKey: .data)
+        data = try values.decode([CatalogItem].self, forKey: .data)
         dataType = try values.decode(String.self, forKey: .dataType)
         showTitle = try values.decode(Bool.self, forKey: .showTitle)
         uiType = try values.decode(String.self, forKey: .uiType)

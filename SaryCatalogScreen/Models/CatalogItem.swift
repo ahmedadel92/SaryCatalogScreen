@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Group {
+struct CatalogItem {
     let id: Int?
     let name: String?
     let image: String
@@ -33,7 +33,7 @@ struct Group {
     }
 }
 
-extension Group: Decodable {
+extension CatalogItem: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

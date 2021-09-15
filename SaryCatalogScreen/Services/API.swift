@@ -42,21 +42,25 @@ class API {
             onComplete?([])
         }
         task.resume()
+    }
+    
+    func getBannersFromLocalJson() -> [Banner] {
+        if let path = Bundle.main.path(forResource: "bannersJson", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let bannersResponse = try JSONDecoder().decode(BannersResponse.self, from: data)
+                return bannersResponse.result
+            } catch {
+               // handle error
+            print(error)
+            }
+        }
         
-//        if let path = Bundle.main.path(forResource: "bannersJson", ofType: "json") {
-//            do {
-//                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-//                let bannersResponse = try JSONDecoder().decode(BannersResponse.self, from: data)
-//                return bannersResponse.result
-//            } catch {
-//               // handle error
-//            print(error)
-//            }
-//        }
+        return []
     }
     
     
-    func getCatalog() {
+    func getCatalog(onComplete: (([CatalogSection])->Void)?) {
         var request = URLRequest(url: catalogUrl)
         request.httpMethod = "GET"
         request.setValue("android", forHTTPHeaderField: "Device-Type")
@@ -75,6 +79,7 @@ class API {
 
             do {
                 let catalogResponse = try JSONDecoder().decode(CatalogResponse.self, from: data)
+                onComplete?(catalogResponse.result)
             } catch {
                 print("Error: \(error.localizedDescription)")
             }

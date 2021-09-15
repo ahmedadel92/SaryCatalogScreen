@@ -9,9 +9,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol BannersCollectionViewCellDelegate where Self: UIViewController {
+    func showToast(withText text:String)
+}
+
 class BannersCollectionViewCell: UICollectionViewCell, UICollectionViewDelegateFlowLayout {
 
     let cellId = "bannerCell"
+    var delegate: BannersCollectionViewCellDelegate?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -53,6 +58,10 @@ class BannersCollectionViewCell: UICollectionViewCell, UICollectionViewDelegateF
             if let url = URL(string: model.image) {
                 cell.imageView.load(from: url)
             }
+        }.disposed(by: bag)
+        
+        collectionView.rx.modelSelected(Banner.self).bind { banner in
+            self.delegate?.showToast(withText: banner.link)
         }.disposed(by: bag)
         
         collectionView.rx.setDelegate(self).disposed(by: bag)

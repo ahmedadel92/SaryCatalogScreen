@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DE7AE172F136F3E52F782028 /* Pods_SaryCatalogScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1EBB9E183C393BE6003B92 /* Pods_SaryCatalogScreen.framework */; };
+		E211818526F26E1600980502 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E211818426F26E1600980502 /* CatalogViewModel.swift */; };
+		E211818726F27A2400980502 /* CatalogItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E211818626F27A2400980502 /* CatalogItemViewCell.swift */; };
 		E2BCDDAC26F0E35600CA05B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCDDAB26F0E35600CA05B9 /* AppDelegate.swift */; };
 		E2BCDDAE26F0E35600CA05B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCDDAD26F0E35600CA05B9 /* SceneDelegate.swift */; };
 		E2BCDDB026F0E35600CA05B9 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCDDAF26F0E35600CA05B9 /* CatalogViewController.swift */; };
@@ -19,7 +21,7 @@
 		E2D186F226F12D1B00163CA3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D186F126F12D1B00163CA3 /* API.swift */; };
 		E2D186F426F13A9700163CA3 /* BannersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D186F326F13A9700163CA3 /* BannersResponse.swift */; };
 		E2D186F826F13F2800163CA3 /* bannersJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D186F726F13F2800163CA3 /* bannersJson.json */; };
-		E2D186FA26F142F900163CA3 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D186F926F142F900163CA3 /* Group.swift */; };
+		E2D186FA26F142F900163CA3 /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D186F926F142F900163CA3 /* CatalogItem.swift */; };
 		E2D186FC26F146F600163CA3 /* CatalogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D186FB26F146F600163CA3 /* CatalogSection.swift */; };
 		E2D186FE26F1484E00163CA3 /* CatalogResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D186FD26F1484E00163CA3 /* CatalogResponse.swift */; };
 		E2D1870026F149D300163CA3 /* catalogJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D186FF26F149D300163CA3 /* catalogJson.json */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		0AFDD681EFBE196E0A4B3691 /* Pods-SaryCatalogScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaryCatalogScreen.release.xcconfig"; path = "Target Support Files/Pods-SaryCatalogScreen/Pods-SaryCatalogScreen.release.xcconfig"; sourceTree = "<group>"; };
 		2B1EBB9E183C393BE6003B92 /* Pods_SaryCatalogScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaryCatalogScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E211818426F26E1600980502 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
+		E211818626F27A2400980502 /* CatalogItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemViewCell.swift; sourceTree = "<group>"; };
 		E2BCDDA826F0E35600CA05B9 /* SaryCatalogScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaryCatalogScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BCDDAB26F0E35600CA05B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2BCDDAD26F0E35600CA05B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +49,7 @@
 		E2D186F126F12D1B00163CA3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E2D186F326F13A9700163CA3 /* BannersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersResponse.swift; sourceTree = "<group>"; };
 		E2D186F726F13F2800163CA3 /* bannersJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bannersJson.json; sourceTree = "<group>"; };
-		E2D186F926F142F900163CA3 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		E2D186F926F142F900163CA3 /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		E2D186FB26F146F600163CA3 /* CatalogSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSection.swift; sourceTree = "<group>"; };
 		E2D186FD26F1484E00163CA3 /* CatalogResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResponse.swift; sourceTree = "<group>"; };
 		E2D186FF26F149D300163CA3 /* catalogJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalogJson.json; sourceTree = "<group>"; };
@@ -117,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D186E726F0EB9F00163CA3 /* Banner.swift */,
-				E2D186F926F142F900163CA3 /* Group.swift */,
+				E2D186F926F142F900163CA3 /* CatalogItem.swift */,
 				E2D186FB26F146F600163CA3 /* CatalogSection.swift */,
 			);
 			path = Models;
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D186E926F0EBF900163CA3 /* BannersViewModel.swift */,
+				E211818426F26E1600980502 /* CatalogViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				E2D1870126F155D200163CA3 /* BannersCollectionViewCell.swift */,
 				E2D1870326F1563A00163CA3 /* BannerViewCell.swift */,
+				E211818626F27A2400980502 /* CatalogItemViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,11 +295,13 @@
 				E2D186FE26F1484E00163CA3 /* CatalogResponse.swift in Sources */,
 				E2D186F426F13A9700163CA3 /* BannersResponse.swift in Sources */,
 				E2D186FC26F146F600163CA3 /* CatalogSection.swift in Sources */,
+				E211818526F26E1600980502 /* CatalogViewModel.swift in Sources */,
 				E2D1870426F1563A00163CA3 /* BannerViewCell.swift in Sources */,
 				E2D186EA26F0EBF900163CA3 /* BannersViewModel.swift in Sources */,
 				E2D1870626F1D01800163CA3 /* Extensions.swift in Sources */,
-				E2D186FA26F142F900163CA3 /* Group.swift in Sources */,
+				E2D186FA26F142F900163CA3 /* CatalogItem.swift in Sources */,
 				E2BCDDAC26F0E35600CA05B9 /* AppDelegate.swift in Sources */,
+				E211818726F27A2400980502 /* CatalogItemViewCell.swift in Sources */,
 				E2D186F226F12D1B00163CA3 /* API.swift in Sources */,
 				E2BCDDAE26F0E35600CA05B9 /* SceneDelegate.swift in Sources */,
 			);
