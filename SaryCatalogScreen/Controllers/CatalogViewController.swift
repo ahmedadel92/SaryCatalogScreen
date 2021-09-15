@@ -9,55 +9,48 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CatalogViewController: UIViewController {
+class CatalogViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "sectionCell"
+    let bannersCellId = "bannersCell"
+    let smartCellId = "smartCellId"
     
-    private var viewModel = BannersViewModel()
-    private let bag = DisposeBag()
     
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        return tableView
-    }()
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(tableView)
-        tableView.frame = view.bounds
+        collectionView.register(BannersCollectionViewCell.self, forCellWithReuseIdentifier: bannersCellId)
+        collectionView.register(SmartOptionsCollectionViewCell.self, forCellWithReuseIdentifier: "smartCellId")
         
-        
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
+    
 
-    func bindTableViewData() {
-        //bind items to table
-        viewModel.banners.bind(to: tableView.rx.items(cellIdentifier: cellId, cellType: UITableViewCell.self)) { row, model, cell in
-            cell.textLabel?.text = model.title
-            cell.detailTextLabel?.text = model.description
-        }.disposed(by: bag)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        //bind model selected hundler
+        let sectionHeight: CGFloat = indexPath.item == 0 ? 200 : 100
         
+        return CGSize(width: UIScreen.main.bounds.width, height: sectionHeight)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 0, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannersCellId, for: indexPath) as? BannersCollectionViewCell {
+            return cell
+        } else if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: smartCellId, for: indexPath) as? SmartOptionsCollectionViewCell {
+            return cell
+        }
         
-        //fetch items
-        viewModel.getBanners()
+        return UICollectionViewCell()
     }
 }
-
-//bind items to table
-//        viewModel.banners.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { row, model, cell in
-//            cell.textLabel?.text = model.title
-//            cell.detailTextLabel?.text = model.description
-//        }.disposed(by: bag)
-//
-//        //bind model selected hundler
-//        tableView.rx.modelSelected(Banner.self).bind { banner in
-//            print(banner.title)
-//        }.disposed(by: bag)
-//
-//        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-//            self?.tableView.deselectRow(at: indexPath, animated: true)
-//        }).disposed(by: bag)
 
