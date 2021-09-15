@@ -52,10 +52,7 @@ class BannersCollectionViewCell: UICollectionViewCell, UICollectionViewDelegateF
         viewModel.banners.bind(to: collectionView.rx.items(cellIdentifier: cellId, cellType: BannerViewCell.self)) { row, model, cell in
             if let url = URL(string: model.image) {
                 cell.imageView.load(from: url)
-                //cell.imageView.image = UIImage(systemName: "house")
             }
-            
-            print("Banner cell displayd")
         }.disposed(by: bag)
         
         collectionView.rx.setDelegate(self).disposed(by: bag)

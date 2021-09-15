@@ -21,7 +21,6 @@ class CatalogViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         collectionView.register(BannersCollectionViewCell.self, forCellWithReuseIdentifier: bannersCellId)
-        collectionView.register(SmartOptionsCollectionViewCell.self, forCellWithReuseIdentifier: "smartCellId")
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -40,13 +39,11 @@ class CatalogViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item == 0, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannersCellId, for: indexPath) as? BannersCollectionViewCell {
-            return cell
-        } else if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: smartCellId, for: indexPath) as? SmartOptionsCollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannersCellId, for: indexPath) as? BannersCollectionViewCell {
             return cell
         }
         
