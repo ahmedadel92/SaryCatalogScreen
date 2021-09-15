@@ -22,7 +22,7 @@ struct Banner {
     let link: String
     let level: String
     let isAvailable: Bool
-    let branch: Int
+    let branches: [Int]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -39,7 +39,7 @@ struct Banner {
         case link
         case level
         case isAvailable = "is_available"
-        case branch
+        case branches
     }
 }
 
@@ -61,7 +61,7 @@ extension Banner: Decodable {
         link = try values.decode(String.self, forKey: .link)
         level = try values.decode(String.self, forKey: .level)
         isAvailable = try values.decode(Bool.self, forKey: .isAvailable)
-        branch = try values.decode(Int.self, forKey: .branch)
+        branches = try values.decode([Int].self, forKey: .branches)
         
     }
 }

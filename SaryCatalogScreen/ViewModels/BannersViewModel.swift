@@ -10,12 +10,12 @@ import RxSwift
 
 struct BannersViewModel {
     
-    var banners = PublishSubject<[Banner]>()
+    let banners = PublishSubject<[Banner]>()
     
     func getBanners() {
-        let banners = API.shared.getBanners()
-        
-        self.banners.onNext(banners)
-        self.banners.onCompleted()
+        API.shared.getBanners { banners in
+            self.banners.onNext(banners)
+            self.banners.onCompleted()
+        }
     }
 }

@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,39 +46,47 @@
         <!--Catalog View Controller-->
         <scene sceneID="5UO-di-gmd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mg6-0D-9g9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="MZA-FJ-AFH" customClass="CatalogViewController" customModule="SaryCatalogScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x3U-Xk-oBB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BQF-0g-4xJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DBN-3T-u0u">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8l5-FH-B1z">
-                                    <size key="itemSize" width="414" height="300"/>
-                                    <size key="estimatedItemSize" width="414" height="300"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rrN-Bn-fwg">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OYz-Sb-yXL">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7N0-IO-SDH">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Q9-cy-UbM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BQF-0g-4xJ" firstAttribute="leading" secondItem="3Q9-cy-UbM" secondAttribute="leading" id="Bfe-al-bNl"/>
-                            <constraint firstItem="BQF-0g-4xJ" firstAttribute="top" secondItem="3Q9-cy-UbM" secondAttribute="top" id="D6L-pD-f34"/>
-                            <constraint firstItem="3Q9-cy-UbM" firstAttribute="bottom" secondItem="BQF-0g-4xJ" secondAttribute="bottom" id="UXb-qz-jvU"/>
-                            <constraint firstItem="3Q9-cy-UbM" firstAttribute="trailing" secondItem="BQF-0g-4xJ" secondAttribute="trailing" id="zhX-Tx-d0o"/>
+                            <constraint firstItem="3Q9-cy-UbM" firstAttribute="trailing" secondItem="DBN-3T-u0u" secondAttribute="trailing" id="8EQ-eS-6RX"/>
+                            <constraint firstItem="DBN-3T-u0u" firstAttribute="top" secondItem="3Q9-cy-UbM" secondAttribute="top" id="BWL-qI-l0L"/>
+                            <constraint firstItem="DBN-3T-u0u" firstAttribute="leading" secondItem="3Q9-cy-UbM" secondAttribute="leading" id="ZTL-lH-s3w"/>
+                            <constraint firstItem="3Q9-cy-UbM" firstAttribute="bottom" secondItem="DBN-3T-u0u" secondAttribute="bottom" id="leU-yP-aCS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bZp-bN-4W0"/>
                     <connections>
-                        <outlet property="collectionView" destination="BQF-0g-4xJ" id="SeL-m1-ZGl"/>
+                        <outlet property="collectionView" destination="DBN-3T-u0u" id="yAJ-uy-vUh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mg6-0D-9g9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="418.84057971014494" y="125.89285714285714"/>
         </scene>
