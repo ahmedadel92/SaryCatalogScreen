@@ -9,6 +9,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/*
+ *
+ *  Unfortunately, I Could not bind UI elements with view models because I don't have past
+ *  experience in RxSwift or RxDataSources.
+ *
+ *  This controller is done the standard way. but linked with the banners cell that listens to
+ *  banners data using RxSwift.
+ *
+ */
+
 class CatalogViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, BannersCollectionViewCellDelegate {
     
     let bannersCellId = "bannersCell"
