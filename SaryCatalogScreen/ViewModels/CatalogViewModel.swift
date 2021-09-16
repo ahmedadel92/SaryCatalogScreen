@@ -11,15 +11,9 @@ import RxCocoa
 
 struct CatalogViewModel {
     
-    //let banners = PublishSubject<[Banner]>()
     let sections = PublishSubject<[CatalogSection]>()
     
     func getData() {
-//        API.shared.getBanners { banners in
-//            self.banners.onNext(banners)
-//            self.banners.onCompleted()
-//        }
-        
         API.shared.getCatalog { sections in
             self.sections.onNext(sections)
             self.sections.onCompleted()

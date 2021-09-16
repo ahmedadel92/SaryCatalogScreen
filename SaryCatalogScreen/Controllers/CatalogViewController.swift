@@ -17,14 +17,14 @@ class CatalogViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let catalogViewModel = CatalogViewModel()
-    let bag = DisposeBag()
+//    let catalogViewModel = CatalogViewModel()
+//    let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.register(BannersCollectionViewCell.self, forCellWithReuseIdentifier: bannersCellId)
-        collectionView.register(CatalogItemViewCell.self, forCellWithReuseIdentifier: catalogItemCellId)
+//        collectionView.register(CatalogItemViewCell.self, forCellWithReuseIdentifier: catalogItemCellId)
         
         collectionView.dataSource = self
         collectionView.delegate = self
