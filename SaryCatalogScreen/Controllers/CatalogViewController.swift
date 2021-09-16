@@ -17,6 +17,7 @@ import RxCocoa
  *  This controller is done the standard way. but linked with the banners cell that listens to
  *  banners data using RxSwift.
  *
+ *  The banners section has the ability to slide banners, and that requires more than one banner.
  */
 
 class CatalogViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, BannersCollectionViewCellDelegate {
